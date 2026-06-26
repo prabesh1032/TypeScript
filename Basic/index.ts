@@ -186,17 +186,67 @@ responseStatus = "failed";
 responseStatus = "string";
 
 //function
-const greet = (name: string) => {
+const greet = (name: string): void => {
   console.log("hello", name);
 };
 greet("Ram");
+type TFunction = (x: string) => void;
+
+const hello: TFunction = (name) => {
+  console.log("hello", name);
+};
+hello("ram");
 
 const add = (a: number, b: number): number => {
   console.log(a + b);
   return a + b;
 };
 add(10, 20);
-//greet(12334)//error
-//class
-//generic type
+//greet(12334)//error because of number.
+
+//void
+//void should called if there is no return
+
+//class//do yourself
 //interface
+//it give shape of object
+interface Iuser {
+  _id: string | number;
+  name: string;
+  email: string;
+  password: string;
+  phone?: string;
+}
+let users: Iuser = {
+  _id: "1",
+  name: "",
+  email: "",
+  password: "",
+};
+//to do difference between type anbd interface
+//decleration merge(hint)
+
+//generic type
+interface IBox<T> {
+  value: T;
+}
+let stringBox: IBox<string> = {
+  value: "one",
+};
+let numberBox: IBox<number> = {
+  value: 1,
+};
+let box1: IBox<number[]> = {
+  value: [1, 2],
+};
+let box2: IBox<{ x: number; y: string }> = {
+  value: {
+    x: 12,
+    y: "hello",
+  },
+};
+let box3: IBox<(x: number) => number> = {
+  value: (a: number) => {
+    return a;
+  },
+};
