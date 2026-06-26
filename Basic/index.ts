@@ -176,11 +176,27 @@ let dObj: A | B = {
 let dObj2: D = {
   a: "",
   d: "",
-};
+}; //need to use both A and D because in D type there is A & D
 
-//if we nees
 //type litral
+//type TStatus="error" | "string" | "failed"
+let responseStatus: "error" | "string" | "failed";
+responseStatus = "error";
+responseStatus = "failed";
+responseStatus = "string";
+
 //function
+const greet = (name: string) => {
+  console.log("hello", name);
+};
+greet("Ram");
+
+const add = (a: number, b: number): number => {
+  console.log(a + b);
+  return a + b;
+};
+add(10, 20);
+//greet(12334)//error
 //class
 //generic type
 //interface
